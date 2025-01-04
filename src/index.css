@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    body {
+        @apply bg-background
+    }
+
+    .cards{
+        @apply p-3 rounded-lg  m-3 text-real max-w-72 text-left hover:bg-secondary delay-100 transition-all 
+    }
+}
