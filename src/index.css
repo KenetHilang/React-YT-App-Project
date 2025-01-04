@@ -11,3 +11,7 @@
         @apply p-3 rounded-lg  m-3 text-real max-w-72 text-left hover:bg-secondary delay-100 transition-all 
     }
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
