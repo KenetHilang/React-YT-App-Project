@@ -1,6 +1,6 @@
-import React from "react";
+import React, {createContext} from "react";
 
-const SidebarContext = React.createContext({
+const SidebarContext = createContext({
   sidebarOpen: false,
   setSidebarOpen: () => {}
 });
