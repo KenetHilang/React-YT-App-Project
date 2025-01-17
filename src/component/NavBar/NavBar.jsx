@@ -1,7 +1,8 @@
-import React, { useState, createContext } from "react";
+import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Sidebar from "../SideBar/Sidebar";
 import SidebarContext from "../SideBar/SidebarStatus";
+import SearchSpace from "../Functions/SearchFunction";
 
 function NavBar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -19,11 +20,7 @@ function NavBar() {
           LiveTube
         </h1>
         <div className="flex flex-grow justify-end px-2 py-2 mx-10">
-          <input
-            type="text"
-            className="h-full w-1/5 px-3 py-2 rounded-lg text-black"
-            placeholder="&#xF002; Search"
-          />
+          <SearchSpace/>
         </div>
       </nav>
       <SidebarContext.Provider value={status}>
