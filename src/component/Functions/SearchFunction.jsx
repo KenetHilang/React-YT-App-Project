@@ -1,30 +1,30 @@
-import React, {useState, createContext} from "react";
-
-export const SearchContext = createContext();
+import React, {useContext, useState} from "react";
+import { SearchContext } from "../../App";
 
 function SearchSpace() {
 
-    const [Val, setVal] = useState("")
+    const [Val, setVal] = useContext(SearchContext)
+    const [Input, setInput] = useState("")
+
     const change = event => {
-        setVal(event.target.value)
+        setInput(event.target.value)
+    }
+
+    const enterKey = event => {
+        if (event.key === "Enter")
+        {setVal(Input)}
     }
 
     return(
         <>
-        <SearchContext.Provider value={Val}>
             <input
-            onKeyDown={(e) => {
-                if (e.key === "Enter")
-                    alert(Val);
-                }}
+            onKeyDown={enterKey}
             type="text"
             className="h-full w-1/5 px-3 py-2 rounded-lg text-black"
             placeholder="Search"
-            value={Val}
+            value={Input}
             onChange={change}
             />
-        </SearchContext.Provider>
-
         </>
 
     )

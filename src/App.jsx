@@ -1,15 +1,22 @@
 import NavBar from "./component/NavBar/NavBar"
 import HomePage from "./HomePage"
-import BigScreen from "./Screen"
+
 import Sidebar from "./component/SideBar/Sidebar"
+import { createContext, useState } from "react"
+
+export const SearchContext = createContext();
 
 function App() {
+
+  const [Val, SetVal] = useState("");
+
   return (
     <>
       <Sidebar/>
-      <NavBar/>
-      <BigScreen title="This is where ur title should be" desc="This is where ur desc"/>
-      <HomePage/>
+      <SearchContext.Provider value={[Val, SetVal]}>
+        <NavBar/>
+        <HomePage/>
+      </SearchContext.Provider>
     </>
   )
 }
