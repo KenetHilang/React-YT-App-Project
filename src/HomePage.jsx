@@ -6,10 +6,11 @@ import BigScreen from "./Screen";
 
 function HomePage(){
     
-    const API_KEY = import.meta.env.VITE_APP_YT
+    const API_KEY = import.meta.env.VITE_APP_YT2
     const [Val, setVal] = useContext(SearchContext)
     const YT_BASE = "https://youtube.googleapis.com/youtube/v3/search"
     const YT_LONG_1 = `${YT_BASE}?key=${API_KEY}&q=${encodeURIComponent(Val)}&type=video&part=snippet`
+    const [Screen, setScreen ] = useState(null)
 
     const [VideoInfo, setVideoInfo] = useState([]);
 
@@ -29,15 +30,29 @@ function HomePage(){
         fetchData();
       }, [Val, API_KEY]);
 
+      const videoclicked = (videoclick) => {
+        setScreen(videoclick)
+        console.log(videoclick)
+      } 
+
     return(
         <>
-        <BigScreen title="This is where ur title should be" desc="This is where ur desc"/>
-        <div className="grid grid-cols-5 gap-3 text-white">
-            {VideoInfo.map(video => (
-                <div key={video.id.videoId}>
+        <div className="flex text-white mt-20 h-screen">
+            <div className="flex-1 mx-4">
+                <BigScreen 
+                title={Screen ? Screen.snippet.title : ""}
+                desc={Screen ? Screen.snippet.description : ""}
+                source= {Screen ? `https://www.youtube.com/embed/${Screen.id.videoId}` : ""}
+                />
+            </div>
+
+            <div className="w-1/3 h-full overflow-auto ">
+                {VideoInfo.map(video => (
+                <div key={video.id.videoId} onClick={() => videoclicked(video)}>
                     <Cards title={video.snippet.title} channel={video.snippet.channelTitle} image={video.snippet.thumbnails.high.url} />
                 </div>
                 ))}
+            </div>
         </div>
         </>
     );

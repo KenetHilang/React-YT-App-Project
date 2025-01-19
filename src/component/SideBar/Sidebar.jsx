@@ -28,12 +28,6 @@ function Sidebar() {
                   <a href="#" className="text-gray-300 hover:text-white">Home</a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">Trending</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-white">Subscriptions</a>
-                </li>
-                <li>
                   <button className="text-gray-300 hover:text-white" onClick={close}>Go back</button>
                 </li>
               </ul>

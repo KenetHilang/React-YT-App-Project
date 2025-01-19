@@ -8,7 +8,7 @@
     }
 
     .cards{
-        @apply p-3 rounded-lg  m-3 text-real max-w-72 text-left hover:bg-secondary delay-100 transition-all 
+        @apply p-2 rounded-lg m-2 text-real text-left hover:bg-secondary delay-100 transition-all 
     }
 }
 
