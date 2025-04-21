@@ -3,6 +3,8 @@ import { SearchContext } from "./App";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import BigScreen from "./Screen";
+import Balls from "./component/Animations/Balls";
+import Bg_Move from "./component/Animations/Backgrounds-movement";
 
 function HomePage(){
     
@@ -35,7 +37,19 @@ function HomePage(){
         console.log(videoclick)
       } 
 
-    return(
+    if (!Val) return (
+        <>
+            <Bg_Move />
+            <div className="flex items-center justify-center h-screen">
+            <h1 className="font-bold md:text-6xl text-3xl text-white rounded-xl text-center absolute">
+            LiveTube
+            </h1>
+            <Balls />
+            </div>
+        </>
+    )
+        
+    else return(
         <>
         <div className="flex text-white mt-20 h-screen">
             <div className="flex-1 mx-4">

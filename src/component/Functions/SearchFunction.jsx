@@ -20,7 +20,7 @@ function SearchSpace() {
             <input
             onKeyDown={enterKey}
             type="text"
-            className="h-full w-1/5 px-3 py-2 rounded-lg text-black"
+            className="h-full w-52 px-3 py-2 rounded-lg text-black md:block hidden"
             placeholder="Search"
             value={Input}
             onChange={change}
